@@ -16,6 +16,7 @@ let m, m2;
 let peso_es_major_que = major(p);
 
 switch (peso_es_major_que) {
+
     case 30:
         sc = ( ( p * 4 ) + 7 ) / ( p + 90 );
         sc1 = sc * 1500;
@@ -42,3 +43,15 @@ switch (peso_es_major_que) {
         console.log("Peso negativo o nulo");
         break;
 }
+
+//let form = document.getElementById('calculadora');
+//form.style.backgroundColor = 'blue';
+
+const CALCULAR = document.getElementById('calcular');
+const ERROR = document.getElementById('error');
+const FLU = document.getElementById('flu');
+const MAN = document.getElementById('man');
+
+CALCULAR.addEventListener('click', () => {
+    console.log('Se hizo click!')
+})
