@@ -7,13 +7,8 @@ const ERROR = document.getElementById('error');
 const FLU = document.getElementById('flu');
 const MAN = document.getElementById('man');
 
-function major(p) {
-
-    for ( let i = 30; i >= 0; i -= 10 )
-        if ( p > i )
-            return i;
-
-    return -1;
+function redondo(r){
+    return r - ( r % 1 ) + ( ( r % 1 ) < 0.5 ? 0 : 1 );
 }
 
 CALCULAR.addEventListener('click', () => {
@@ -24,37 +19,36 @@ CALCULAR.addEventListener('click', () => {
     let vd = 0 ;
     let m, m2;
     
-    let peso_es_major_que = major(p);
+    switch (true) {
     
-    switch (peso_es_major_que) {
-    
-        case 30:
+        case p > 30:
             sc = ( ( p * 4 ) + 7 ) / ( p + 90 );
             sc1 = sc * 1500;
             sc2 = sc * 2000;
             console.log("SC1 = " + sc1 + "\nSC2 = " + sc2);
-            sc1 -= sc % 1;
-            sc2 -= sc % 1;
+            sc1 = redondo(sc1);
+            sc2 = redondo(sc2);
+            ERROR.style.display = 'none';
             break;
         
-        case 20: 
+        case p > 20: 
             vd += ( p - 20 ) * 20;
             p = 20;
             /* falls through */
-        case 10:
+        case p > 10:
             vd += ( p - 10 ) * 50;
             p = 10;
             /* falls through */
-        case 0:
-            ERROR.style.display = 'none'
+        case p > 0:
             vd += p * 100;
             m = vd / 24;
             m2 = m *  1.5;
             console.log("\nvd= " + vd + "\nm= " + m + "\nm2= " + m2);
-            m -= m % 1
-            m2 -= m2 % 1
+            m = redondo(m);
+            m2 = redondo(m2);
             FLU.innerHTML = m + ' cc/hr';
             MAN.innerHTML = 'm+m/2 ' + m2 + ' cc/hr';
+            ERROR.style.display = 'none';
             FLU.style.display = 'block';
             MAN.style.display = 'block';
             break;
