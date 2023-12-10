@@ -14,7 +14,7 @@ function redondo(r){
 
 IMPUT.focus();
 IMPUT.addEventListener( 'keyup', () => calc() )
-CALCULAR.addEventListener('click', () => calc())
+CALCULAR.addEventListener( 'click', () => calc() )
 
 function calc() {
 
@@ -65,7 +65,6 @@ function calc() {
             MAN.style.display = 'none';
             break;
     }
-
 }
 
 
