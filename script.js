@@ -50,7 +50,7 @@ function calc() {
             vd += p * 100;
             m = Math.round(vd / 24);
             m2 = Math.round(m *  1.5);
-            console.log("\nvd= " + vd + "\nnm= " + m + "\nm2= " + m2);
+            console.log("\nvd= " + vd + "\nm= " + m + "\nm2= " + m2);
             FLU.innerHTML = m + ' cc/hr';
             MAN.innerHTML = 'm+m/2 ' + m2 + ' cc/hr';
             ERROR.style.display = 'none';
