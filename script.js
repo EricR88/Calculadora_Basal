@@ -1,7 +1,4 @@
 
-//let form = document.getElementById('calculadora');
-//form.style.backgroundColor = 'blue';
-
 const CALCULAR = document.getElementById('calcular');
 const IMPUT = document.getElementById('peso');
 const ERROR = document.getElementById('error');
