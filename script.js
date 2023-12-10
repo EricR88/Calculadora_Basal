@@ -18,7 +18,7 @@ CALCULAR.addEventListener('click', () => calc())
 
 function calc() {
 
-    let p = document.getElementById('peso').value;
+    let p = IMPUT.value;
     let sc;
     let sc1,  sc2; 
     let vd = 0 ;
@@ -28,11 +28,9 @@ function calc() {
     
         case p > 30:
             sc = ( ( p * 4 ) + 7 ) / ( p + 90 );
-            sc1 = sc * 1500;
-            sc2 = sc * 2000;
+            sc1 = Math.round(sc * 1500);
+            sc2 = Math.round(sc * 2000);
             console.log("SC1 = " + sc1 + "\nSC2 = " + sc2);
-            sc1 = redondo(sc1);
-            sc2 = redondo(sc2);
             FLU.innerHTML = '*1500 ' + sc1 + ' cc/hr';
             MAN.innerHTML = '*2000 ' + sc2 + ' cc/hr';
             ERROR.style.display = 'none';
@@ -50,11 +48,9 @@ function calc() {
             /* falls through */
         case p > 0:
             vd += p * 100;
-            m = vd / 24;
-            m2 = m *  1.5;
-            console.log("\nvd= " + vd + "\(nm= " + m + "\nm2= " + m2);
-            m = redondo(m);
-            m2 = redondo(m2);
+            m = Math.round(vd / 24);
+            m2 = Math.round(m *  1.5);
+            console.log("\nvd= " + vd + "\nnm= " + m + "\nm2= " + m2);
             FLU.innerHTML = m + ' cc/hr';
             MAN.innerHTML = 'm+m/2 ' + m2 + ' cc/hr';
             ERROR.style.display = 'none';
@@ -72,21 +68,4 @@ function calc() {
 
 }
 
-function major(a, b, c){
 
-    if ( a > ( b && c ) )
-        return a;
-    else if ( b > ( a && c ) )
-        return b;
-        else if ( c > ( a && b ) )
-            return c;
-    
-    console.log("Error")
-    return false;
-}
-
-
-let resultado = major(10, 20, 30);
-
-if (resultado)
-    console.log(resultado)
